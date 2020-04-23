@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//test
+
+Route::get('/home/test', 'UserController@home')->name('profile');
+Route::get('user/{id}', 'UserController@show');
