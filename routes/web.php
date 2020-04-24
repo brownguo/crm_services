@@ -16,7 +16,17 @@ Route::get('/', function () {
 });
 
 
-//test
+//普通get路由
 
 Route::get('/home/test', 'UserController@home')->name('profile');
-Route::get('user/{id}', 'UserController@show');
+Route::get('user/{id}', 'UserController@show')->name('names');
+Route::get('/task/{id}', 'TaskController@taskHome');
+//路由分组
+Route::prefix('v1')->group( function () {
+    Route::get('hello/{id}', 'UserController@show');
+    Route::get('world', function () { return 'World'; });
+});
+//访问不存在的时候调用
+Route::fallback(function () {
+    return '访问的Action不存在';
+});
