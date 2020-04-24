@@ -10,7 +10,15 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    //从新定义主键，static::findOrFail的时候默认主键是ID。
+    protected $primaryKey = 'Fid';
+
+    //主键是否递增，
+    public $incrementing = true;
+
+    //设置一下表名，prefix在database.php里设置的。
     protected $table = 'account';
+
     /**
      * The attributes that are mass assignable.
      *

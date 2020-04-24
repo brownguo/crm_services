@@ -26,8 +26,13 @@ class UserController extends BaseController
 
     public function show($id)
     {
+        //$users =  User::findOrFail(['Fid'=>$id]);
         $users = User::all();
-        print_r(compact('users'));
+
+        foreach ($users as $flight) {
+            echo $flight->Faccount."\n";
+        }
+        print_r($users);
 //        print_r($users);
     }
 }
